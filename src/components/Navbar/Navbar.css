@@ -1,0 +1,165 @@
+.Navbar {
+	width: 100%;
+	background: #020202;
+	background: var(--color-black);
+	color: var(--color-white);
+}
+
+.Navbar__wrape  {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Navbar__logo__content {
+	display: flex; 
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Navbar__burgger {
+	display: none;
+}
+
+@media (max-width: 850px) {
+	.Navbar__burgger {
+		display: block;
+		margin: 0 0 0 20px;
+	}
+}
+
+img.Navbar__logo {
+	display: inline-block;
+	width: 200px;
+	cursor: pointer;
+	margin-bottom: 4px;
+}
+
+@media (max-width: 450px) {
+	img.Navbar__logo {
+		width: 150px;
+		margin-bottom: 2px;
+	}
+}
+
+.Navbar__move {
+	width: 340px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+@media (max-width: 850px) {
+	.Navbar__move {
+		display: none;
+	}
+}
+
+.Navbar__move a {
+	font-size: 20px;
+	cursor: pointer;
+	color: var(--color-white);
+	opacity: 0.8;
+	transition: 0.4s;
+}
+
+.Navbar__move a:hover {
+	opacity: 1;
+}
+
+.Navbar__a {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Navbar__serch {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	margin: 0 20px;
+}
+
+@media (max-width: 550px) {
+	.Navbar__serch {
+		margin: 0 10px;
+	}
+}
+
+.Navbar__serch img {
+	width: 30px;
+}
+
+.Navbar__serch p {
+	color: var(--color-primary);
+	font-size: 14px;
+}
+
+@media (max-width: 550px) {
+	.Navbar__serch p {
+		display: none;
+	}
+}
+
+.Navbar__serch img:hover ~ p, .Navbar__serch p:hover {
+	color: var(--color-primary-hover);
+}
+
+.Navbar__dropdown {
+	position: relative;
+}
+
+img.Navbar__signIn {
+	width: 50px;
+	cursor: pointer;
+    display: inline-block;
+}
+
+
+img.Navbar__signIn.active {
+	background: var(--color-white);
+	border-radius: 50%;
+}
+
+@media (max-width: 550px) {
+	img.Navbar__signIn {
+		width: 40px;
+	}
+}
+
+.Navbar__dropdown-content {
+	display: none;  
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    position: absolute;
+    top: 58px;
+    right: -15px;
+    z-index: 1;
+}
+
+@media (max-width: 550px) {
+	.Navbar__dropdown-content {
+		top: 53px;
+	}
+}
+
+@media (max-width: 450px) {
+	.Navbar__dropdown-content {
+		top: 44px;
+	}
+}
+
+.Navbar__dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.Navbar__dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}

@@ -1,0 +1,17 @@
+https://wild-pantyhose-foal.cyclic.app
+
+
+Структура
+
+App
+	Navbar
+	Router
+		if privateRouters
+			FilmPage
+			MainPage
+			MyPage
+
+		if publickRouters
+			FilmPage
+			LoginPage
+			MainPage
