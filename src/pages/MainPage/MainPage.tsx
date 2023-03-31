@@ -12,7 +12,7 @@ export const MainPage: FC = () => {
 	useEffect(() => {console.log('This is MainPage: React.FC')}, [])
 
 	const test = async () => {
-		const request = await axios.get('https://tame-pink-puppy-boot.cyclic.app/users')
+		const request = await axios.get('https://crimson-badger-tux.cyclic.app/users')
 		console.log( request.data)
 	}
 
@@ -21,12 +21,8 @@ export const MainPage: FC = () => {
 			id: uniqid(),
 			name: '111111'
 		}
-		const request = await axios.post('https://tame-pink-puppy-boot.cyclic.app/users', a, {
-			headers: {
-            'Content-Type': 'application/json;charset=UTF-8',
-          "Access-Control-Allow-Origin": "*",
-        }
-		})
+		
+		const request = await axios.post('https://crimson-badger-tux.cyclic.app/users', a)
         
 		console.log( request.data)
 	}

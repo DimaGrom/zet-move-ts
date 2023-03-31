@@ -1,12 +1,14 @@
 export interface IUser {
 	id: string;
 	name: string;
-	password: string;
+	password?: string;
+	favoritFilms?: number[];
 }
 
 export interface IAuthState {
 	error: string | null;
 	loading: boolean;	
+	name: string;
 	statuse: number | null;
 	user: null | IUser;
 	token: null | string;
@@ -20,16 +22,16 @@ export enum AuthActionTypes {
 
 interface AythAction {
 	type: AuthActionTypes.AUTH;
-	payload: number | null;
 }
 
 interface AythErrorAction {
 	type: AuthActionTypes.AUTH_ERROR;
+	payload: null | number;
 }
 
 interface AythSuccessAction {
 	type: AuthActionTypes.AUTH_SUCCESS;
-	payload: null | IUser;
+	payload: {name: string, user: IUser}
 }
 
 export type AythActions = 

@@ -5,13 +5,15 @@ https://wild-pantyhose-foal.cyclic.app
 
 App
 	Navbar
+		if privateRouters__
+			LogiForm
 	Router
-		if privateRouters
+		if privateRouters__
 			FilmPage
 			MainPage
 			MyPage
 
-		if publickRouters
+		if publickRouters__
 			FilmPage
 			LoginPage
 			MainPage

@@ -123,6 +123,26 @@ img.Navbar__signIn.active {
 	border-radius: 50%;
 }
 
+.Navbar__dropdown div.Navbar__signIn {
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+
+.Navbar__dropdown div.Navbar__signIn.active {
+	background: var(--color-white);
+	border-radius: 50%;
+}
+
 @media (max-width: 550px) {
 	img.Navbar__signIn {
 		width: 40px;
@@ -153,13 +173,14 @@ img.Navbar__signIn.active {
 	}
 }
 
-.Navbar__dropdown-content a {
+.Navbar__dropdown-content a, .Navbar__dropdown-content div {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    cursor: pointer;
 }
 
-.Navbar__dropdown a:hover {background-color: #ddd;}
+.Navbar__dropdown a:hover, .Navbar__dropdown-content div:hover {background-color: #ddd;}
 
 .show {display: block;}

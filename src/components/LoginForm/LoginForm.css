@@ -1,0 +1,194 @@
+.LoginForm {
+	position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #363636;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+  overflow: auto;
+  position: fixed;
+
+  background-color: rgb(var(--color-gray)); 
+  background-color: rgba(var(--color-gray), 0.8); 
+}
+
+.LoginForm form.LoginForm-form {
+	background: white;
+    width: 340px;
+    height: 330px;
+}
+
+.LoginForm form.LoginForm-form {
+    position: relative;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 7px 16px -3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 7px 16px -3px rgba(0,0,0,0.5);
+    box-shadow: 0px 7px 16px -3px rgba(0,0,0,0.5);
+      background: #bc3220;
+    background: -moz-linear-gradient(left, #bc3220 0%, #db4a37 29%, #db4a37 50%, #db4a37 71%, #bc3220 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, #bc3220), color-stop(29%, #db4a37), color-stop(50%, #db4a37), color-stop(71%, #db4a37), color-stop(100%, #bc3220));
+    background: -webkit-linear-gradient(left, #bc3220 0%, #db4a37 29%, #db4a37 50%, #db4a37 71%, #bc3220 100%);
+    background: -o-linear-gradient(left, #bc3220 0%, #db4a37 29%, #db4a37 50%, #db4a37 71%, #bc3220 100%);
+    background: -ms-linear-gradient(left, #bc3220 0%, #db4a37 29%, #db4a37 50%, #db4a37 71%, #bc3220 100%);
+    background: linear-gradient(to right, #bc3220 0%, #db4a37 29%, #db4a37 50%, #db4a37 71%, #bc3220 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc3220', endColorstr='#bc3220', GradientType=1 );
+}
+
+.LoginForm form.LoginForm-form:before {
+    content: '';
+    position: absolute;
+    top: -2px; left: 0;
+    height: 2px; width: 100%; 
+}
+
+.LoginForm__input {
+    padding: 0 15px;
+    margin: 0 15px;
+    flex: 1;
+    padding: 1em 2em;
+    border: 0;
+    width:100%;
+    box-sizing: border-box;
+    color: var(--color-white);
+    font-size: 0.8rem;
+    font-family: Open Sans, Arial, sans-serif;
+    text-shadow: 1px 1px 1px #232323;
+    border-radius: 25px;
+    background: #bc3220;
+    background: -moz-linear-gradient(top, #bc3220 0%, #fa5846 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #bc3220), color-stop(100%, #fa5846));
+    background: -webkit-linear-gradient(top, #bc3220 0%, #fa5846 100%);
+    background: -o-linear-gradient(top, #bc3220 0%, #fa5846 100%);
+    background: -ms-linear-gradient(top, #bc3220 0%, #fa5846 100%);
+    background: linear-gradient(to bottom, #bc3220 0%, #fa5846 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc3220', endColorstr='#fa5846', GradientType=0 );
+}
+
+.LoginForm__input:focus {
+    outline: none;
+    transition: transform .15s ease;
+    transform: scale(1.02);
+}
+
+.LoginForm .flex-row {
+   padding: 20px 15px 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.LoginForm__lf-input {
+    flex: 1;
+    padding: 1em 2em;
+    border: 0;
+    width:100%;
+    box-sizing: border-box;
+    color: var(--color-white);
+    font-size: 0.8rem;
+    font-family: Open Sans, Arial, sans-serif;
+    text-shadow: 1px 1px 1px #232323;
+    border-radius: 25px;
+    background: #bc3220;
+    background: -moz-linear-gradient(top, #bc3220 0%, #fa5846 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #bc3220), color-stop(100%, #fa5846));
+    background: -webkit-linear-gradient(top, #bc3220 0%, #fa5846 100%);
+    background: -o-linear-gradient(top, #bc3220 0%, #fa5846 100%);
+    background: -ms-linear-gradient(top, #bc3220 0%, #fa5846 100%);
+    background: linear-gradient(to bottom, #bc3220 0%, #fa5846 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc3220', endColorstr='#fa5846', GradientType=0 );
+}
+
+.LoginForm__lf-input::placeholder { color: var(--color-white); }
+
+.LoginForm__lf-input:focus {
+    outline: none;
+    transition: transform .2s ease;
+    transform: scale(1.02);
+}
+
+.LoginForm__lf-input:focus::placeholder, .LoginForm__lf-input:hover::placeholder {
+  opacity: 0;
+}
+
+.LoginForm__change {
+    width: 36px;
+    padding: initial;
+    position: absolute;
+    right: 34px;
+    top: 27px;
+}
+
+.LoginForm__lf-submit {
+    display: block;
+    padding: 18px;
+    width: 100%;
+    color: var(--color-white);
+    -webkit-box-shadow: 0px 7px 16px -3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 7px 16px -3px rgba(0,0,0,0.5);
+    box-shadow: 0px 7px 16px -3px rgba(0,0,0,0.5);
+    background: #ffbf00;
+    background: -moz-linear-gradient(top, #ffbf00 0%, #fa9f17 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #ffbf00), color-stop(100%, #fa9f17));
+    background: -webkit-linear-gradient(top, #ffbf00 0%, #fa9f17 100%);
+    background: -o-linear-gradient(top, #ffbf00 0%, #fa9f17 100%);
+    background: -ms-linear-gradient(top, #ffbf00 0%, #fa9f17 100%);
+    background: linear-gradient(to bottom, #ffbf00 0%, #fa9f17 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbf00', endColorstr='#fa9f17', GradientType=0 );
+    border: 0;
+    border-radius: 30px;
+    color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: 500;
+    text-shadow: -1px -1px #b86200,
+           0 1px 0 #ecb76b;
+}
+
+.LoginForm__lf-submit:hover {
+    outline: none;
+    transition: transform .15s ease;
+    transform: scale(0.98);
+}
+
+.LoginForm p {
+	background: var(--color-black);
+	padding: 10px 20px;
+	display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.LoginForm p span {
+  font-size: 16px;
+  color: var(--color-white);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.4s;
+}
+
+.LoginForm p span:hover {
+  opacity: 1;
+}
+
+.LoginForm p span.active {
+  opacity: 1;
+}
+
+.LoginForm p img {
+  cursor: pointer;
+  width: 35px;
+}
+
+.LoginForm p.line {
+  display: block;
+	background: var(--color-primary);
+  padding: 2px;
+}
+
