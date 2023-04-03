@@ -18,14 +18,64 @@
 	align-items: center;
 }
 
-.Navbar__burgger {
+.Navbar__burgger-cover {
 	display: none;
 }
 
 @media (max-width: 850px) {
+
+	.Navbar__burgger-cover {
+		margin: 0 0 0 15px;
+		width: 44px;
+	    height: 40px;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    cursor: pointer;
+	}
+
 	.Navbar__burgger {
 		display: block;
-		margin: 0 0 0 20px;
+		width: 30px;
+		height: 4px;
+		background: var(--color-primary);
+		position: relative;
+		cursor: pointer;
+		transition: 0.4s;
+	}
+
+	.Navbar__burgger.active {
+		transform: rotate(180deg)
+	}
+
+	.Navbar__burgger:before, .Navbar__burgger:after {
+		position: absolute;
+		content: '';
+		width: 30px;
+		height: 4px;
+		background: var(--color-primary);
+		left: 0;
+		cursor: pointer;
+		transition: 0.4s;
+	}
+
+	.Navbar__burgger:before {
+		top: 9px;	
+	}
+
+	.Navbar__burgger.active:before {
+		top: 0px;
+   		transform: rotate(410deg)
+	}
+
+	.Navbar__burgger:after {
+		top: -9px;
+		transition: 0.4s;
+	}
+
+	.Navbar__burgger.active:after {
+		top: 0px;
+   		transform: rotate(-410deg)
 	}
 }
 
@@ -50,14 +100,18 @@ img.Navbar__logo {
 	align-items: center;
 }
 
-@media (max-width: 850px) {
+.Navbar__move.isAuth {
+	width: 400px;
+}
+
+@media (max-width: 890px) {
 	.Navbar__move {
 		display: none;
 	}
 }
 
 .Navbar__move a {
-	font-size: 20px;
+	font-size: 18px;
 	cursor: pointer;
 	color: var(--color-white);
 	opacity: 0.8;
@@ -163,13 +217,13 @@ img.Navbar__signIn.active {
 
 @media (max-width: 550px) {
 	.Navbar__dropdown-content {
-		top: 53px;
+		top: 58px;
 	}
 }
 
 @media (max-width: 450px) {
 	.Navbar__dropdown-content {
-		top: 44px;
+		top: 50px;
 	}
 }
 

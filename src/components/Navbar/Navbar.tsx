@@ -8,29 +8,56 @@ import serchImg from '../../icons/serch.png'
 import {useNavigate, NavLink} from 'react-router-dom'
 import {RouterType} from '../../utils/RouterConst'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
+import {useActions} from '../../hooks/useAction'
+
 
 export const Navbar: React.FC = () => {
 
+	const {logoutActionCreater} = useActions()
 	const navigate = useNavigate()
 	const activeStyle = {opacity: 1}
 	const [toggle, setToggle] = useState(false)
+	const [toggleBurger, setToggelBurger] = useState(false)
 
 	const [userActive, setUserActive] = useState(false)
+	const [login, setLogin] = useState<boolean>(false)
+	const [registrater, setRegister] = useState<boolean>(false)
 
-	const {user, name} = useTypedSelector(state => state.auth)
-
-	useEffect(() => {
-		console.log('Navbar: React.FC  user  ', user)
-	}, [user])
+	const {user, name, isAuth} = useTypedSelector(state => state.auth)
 
 	const oneLette = (a: string) => {
 		const b = a.split(/\s+/).join('')
 		return b[0]
 	}
 
-	const handleSignin = () => {
-		setUserActive(!userActive)
+	const handleLogo = () => {
+		navigate(RouterType.MAIN_PAGE)
 		setToggle(false)
+	}
+
+	const handleSignin = () => {
+		setUserActive(true)
+		setToggle(false)
+		setLogin(true)
+		setRegister(false)
+	}
+
+	// Выход из личного кабинета
+	const handleLogOut = () => {
+		logoutActionCreater()
+		setToggle(false)
+	}
+
+	const handleRegiser = () => {
+		setUserActive(true)
+		setToggle(false)
+		setRegister(true)
+		setLogin(false)
+	}
+
+	const handleBurger = () => {
+		setToggle(false)
+		setToggelBurger(!toggleBurger)
 	}
  
 	return (
@@ -40,18 +67,22 @@ export const Navbar: React.FC = () => {
 
 					<div className='Navbar__logo__content'>
 						<img
-							onClick={() => navigate(RouterType.MAIN_PAGE)}
+							onClick={handleLogo}
 							className='Navbar__logo'
 							src={logoImg}
 							alt='s'
 						/>
-						<div className='Navbar__burgger'>
-							Burgger
+						<div 
+							onClick={handleBurger}
+							className='Navbar__burgger-cover'
+							>
+							<div className={`Navbar__burgger ${toggleBurger ? 'active' : ''}`}	>	
+							</div>
 						</div>
 					</div>
 
 					
-					<div className='Navbar__move'>
+					<div className={`Navbar__move ${isAuth ? 'isAuth' : ''}`}>
 						<NavLink 
 							to={RouterType.FILM_PAGE}
 							style={({isActive}) => isActive ? activeStyle : undefined}
@@ -68,6 +99,13 @@ export const Navbar: React.FC = () => {
 						>
 							Мультики
 						</NavLink>
+						{isAuth && 
+							<NavLink 
+								to={RouterType.FILM_PAGE}
+							>
+								Избранные
+							</NavLink>
+						}		
 					</div>
 
 					<div className='Navbar__a'>
@@ -98,16 +136,33 @@ export const Navbar: React.FC = () => {
 								)
 							}
 							<div className={`Navbar__dropdown-content ${toggle ? 'show' : ''}`}>
-						    <div 
-						    	onClick={handleSignin}
-						    > 
-						    	{ user 
-						    		? <p>Выйти</p>
-						    		: <p>Войти</p>
-						    	}
-						    </div>
-						    <NavLink to="#about">Регистрация</NavLink>
-						    <NavLink to="#contact">Избранные (0)</NavLink>
+								{!isAuth
+									? (
+										<div 
+								    	onClick={handleSignin}
+								    > 
+								    	<p>Войти</p>
+								    </div>
+									) : (
+										<div 
+								    	onClick={handleLogOut}
+								    > 
+								    	<p>Выйти</p>
+								    </div>
+									)
+								}
+								{!isAuth &&
+									<div 
+							    	onClick={handleRegiser}
+							    > 
+							    	<p>Регистрация</p>
+							    </div>
+								}	
+						    {isAuth &&
+						    	<NavLink to="#contact">
+							    	Избранные (0)
+							    </NavLink>
+						    }
 						  </div>
 						</div>
 
@@ -116,7 +171,14 @@ export const Navbar: React.FC = () => {
 				</div>
 			</div>
 
-			{userActive && <LoginForm setUser={setUserActive} setToggle={setToggle} />}
+			{userActive && <LoginForm 
+				setUserActive={setUserActive}
+				setToggle={setToggle}  
+				login={login} 
+				setLogin={setLogin}
+				registrater={registrater} 
+				setRegister={setRegister}
+			/>}
 		</div>
 	)
 }

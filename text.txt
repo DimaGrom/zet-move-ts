@@ -17,3 +17,12 @@ App
 			FilmPage
 			LoginPage
 			MainPage
+
+
+
+Функции в
+
+authRegisterActionCreate - 
+authLoginActionCreate - LoginForm
+authRegisterActionCreate - LoginForm
+logoutActionCreater - Navbar
