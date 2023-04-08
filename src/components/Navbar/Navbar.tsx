@@ -25,6 +25,7 @@ export const Navbar: React.FC = () => {
 
 	const {user, name, isAuth} = useTypedSelector(state => state.auth)
 
+	// Одна буква имени пользователя
 	const oneLette = (a: string) => {
 		const b = a.split(/\s+/).join('')
 		return b[0]
@@ -33,6 +34,7 @@ export const Navbar: React.FC = () => {
 	const handleLogo = () => {
 		navigate(RouterType.MAIN_PAGE)
 		setToggle(false)
+		setToggelBurger(false)
 	}
 
 	const handleSignin = () => {
@@ -59,6 +61,16 @@ export const Navbar: React.FC = () => {
 		setToggle(false)
 		setToggelBurger(!toggleBurger)
 	}
+
+	const handleAvtorisation = () => {
+		setToggle(!toggle)
+		setToggelBurger(false)
+	}
+
+	const handleSearch = () => {
+		console.log('Поиск по сайту')
+		setToggelBurger(false)
+	}
  
 	return (
 		<div className="Navbar">
@@ -81,7 +93,34 @@ export const Navbar: React.FC = () => {
 						</div>
 					</div>
 
-					
+					<div className={`Navbar__burgger_menu ${toggleBurger ? 'active' : ''}`}>							
+						<div className={`Navbar__move ${isAuth ? 'isAuth' : ''}`}>
+							<NavLink 
+								to={RouterType.FILM_PAGE}
+								style={({isActive}) => isActive ? activeStyle : undefined}
+							>
+								Фильмы
+							</NavLink>
+							<NavLink 
+								to={RouterType.FILM_PAGE}
+							>
+								Сериалы
+							</NavLink>
+							<NavLink 
+								to={RouterType.FILM_PAGE}
+							>
+								Мультики
+							</NavLink>
+							{isAuth && 
+								<NavLink 
+									to={RouterType.FILM_PAGE}
+								>
+									Избранные
+								</NavLink>
+							}		
+						</div>
+					</div>
+		
 					<div className={`Navbar__move ${isAuth ? 'isAuth' : ''}`}>
 						<NavLink 
 							to={RouterType.FILM_PAGE}
@@ -108,7 +147,10 @@ export const Navbar: React.FC = () => {
 						}		
 					</div>
 
-					<div className='Navbar__a'>
+					<div 
+						className='Navbar__a'
+						onClick={handleSearch}
+					>
 						<div className='Navbar__serch'>
 							<img
 								src={serchImg}
@@ -128,7 +170,7 @@ export const Navbar: React.FC = () => {
 									</div>
 								) : (
 									<img
-										onClick={() => setToggle(!toggle)}
+										onClick={handleAvtorisation}
 										className={`Navbar__signIn ${toggle ? 'active' : '' }`}
 										src={userImg}
 										alt='s'
