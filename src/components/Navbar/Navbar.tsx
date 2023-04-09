@@ -5,6 +5,11 @@ import LoginForm from '../LoginForm'
 import logoImg from '../../icons/Logo.png'
 import userImg from '../../icons/user.png'
 import serchImg from '../../icons/serch.png'
+import closeImage from '../../icons/delete_2.png'
+import movies from '../../icons/play-movies.png'
+import soap from '../../icons/play-soap.png'
+import cortoon from '../../icons/play-cortoon.png'
+import heart from '../../icons/heart_03.png'
 import {useNavigate, NavLink} from 'react-router-dom'
 import {RouterType} from '../../utils/RouterConst'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
@@ -93,31 +98,47 @@ export const Navbar: React.FC = () => {
 						</div>
 					</div>
 
-					<div className={`Navbar__burgger_menu ${toggleBurger ? 'active' : ''}`}>							
-						<div className={`Navbar__move ${isAuth ? 'isAuth' : ''}`}>
+					<div className={`Navbar__burgger_menu ${toggleBurger ? 'active' : ''}`}>				
+						<div className='Navbar__move'>
 							<NavLink 
+								onClick={() => setToggelBurger(false)}
 								to={RouterType.FILM_PAGE}
 								style={({isActive}) => isActive ? activeStyle : undefined}
-							>
+							>	
+								<img src={movies} alt='icon' />
 								Фильмы
 							</NavLink>
 							<NavLink 
-								to={RouterType.FILM_PAGE}
-							>
+								onClick={() => setToggelBurger(false)}
+								to={RouterType.SERIALS_PAGE}
+								style={({isActive}) => isActive ? activeStyle : undefined}
+							>	
+								<img src={soap} alt='icon' />
 								Сериалы
 							</NavLink>
 							<NavLink 
-								to={RouterType.FILM_PAGE}
-							>
+								onClick={() => setToggelBurger(false)}
+								to={RouterType.CARTOONS_PAGE}
+								style={({isActive}) => isActive ? activeStyle : undefined}
+							>	
+								<img src={cortoon} alt='icon' />
 								Мультики
 							</NavLink>
 							{isAuth && 
 								<NavLink 
+									onClick={() => setToggelBurger(false)}
 									to={RouterType.FILM_PAGE}
-								>
+								>	
+									<img src={heart} alt='icon' />
 									Избранные
 								</NavLink>
-							}		
+							}	
+							<img
+								className='close'
+								onClick={handleBurger}
+								src={closeImage}
+								alt='close'
+							/>	
 						</div>
 					</div>
 		
@@ -125,16 +146,18 @@ export const Navbar: React.FC = () => {
 						<NavLink 
 							to={RouterType.FILM_PAGE}
 							style={({isActive}) => isActive ? activeStyle : undefined}
-						>
+						>	
 							Фильмы
 						</NavLink>
 						<NavLink 
-							to={RouterType.FILM_PAGE}
+							to={RouterType.SERIALS_PAGE}
+							style={({isActive}) => isActive ? activeStyle : undefined}
 						>
 							Сериалы
 						</NavLink>
 						<NavLink 
-							to={RouterType.FILM_PAGE}
+							to={RouterType.CARTOONS_PAGE}
+							style={({isActive}) => isActive ? activeStyle : undefined}
 						>
 							Мультики
 						</NavLink>

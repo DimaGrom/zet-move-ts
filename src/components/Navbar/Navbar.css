@@ -26,7 +26,7 @@
 	display: none;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 950px) {
 
 	.Navbar__burgger-cover {
 		margin: 0 0 0 15px;
@@ -101,14 +101,31 @@
 	}
 
 	.Navbar__burgger_menu .Navbar__move {
+		min-width: 305px;
+		width: 90%;
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-    padding: 30px 70px;
+    padding: 30px 5%;
+	}
+
+	.Navbar__burgger_menu .Navbar__move img.close {
+		position: absolute;
+		top: 20px;
+		right: 5%;
+		cursor: pointer;
 	}
 
 	.Navbar__burgger_menu .Navbar__move a {
 		margin-bottom: 20px;
+		display: flex;
+		align-items: center;
+	}
+
+	.Navbar__burgger_menu .Navbar__move a img {
+		width: 30px;
+		margin-right: 10px;
 	}
 
 }
@@ -139,11 +156,16 @@ img.Navbar__logo {
 	align-items: center;
 }
 
-.Navbar__move.isAuth {
-	width: 400px;
+.Navbar__move a img {
+	width: 30px;
+	margin-right: 5px;
 }
 
-@media (max-width: 890px) {
+.Navbar__move.isAuth {
+	min-width: 400px;
+}
+
+@media (max-width: 950px) {
 	.Navbar__move {
 		display: none;
 	}
@@ -220,14 +242,14 @@ img.Navbar__signIn.active {
 	width: 50px;
 	height: 50px;
 	cursor: pointer;
-    display: inline-block;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    font-size: 40px;
-    font-weight: 700;
-    color: var(--color-primary);
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--color-primary);
 }
 
 

@@ -1,0 +1,1 @@
+export {SerialPage as default} from './SerialPage'

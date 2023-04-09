@@ -1,0 +1,1 @@
+export {CartoonPage as default} from './CartoonPage'
